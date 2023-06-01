@@ -161,7 +161,10 @@ app.post('/timer',(req,res)=>{
 });
 app.get('/',(req,res)=>{
  
-  res.render('index',{title:'Home'});
+ res.json({
+  web:"running"
+ })
+ console.log("server running")
 
 });
 app.get('/timer',(req,res)=>{
