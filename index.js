@@ -178,8 +178,14 @@ app.get('/timer',(req,res)=>{
   const sql = "SELECT * FROM timer_pakan ORDER BY id DESC LIMIT 1";
     
     db.query(sql, function (err, result) {
-      if (err) throw err;
-      res.json({data:result[0]})
+      if (err) {
+        res.json({
+          data: "kosong"
+        })
+      }else{
+        res.json({data:result[0]})
+      }
+     
       });
   
 });
@@ -189,9 +195,16 @@ app.get('/pakan',(req,res)=>{
   const sql = "SELECT * FROM data_pakan ORDER BY id DESC LIMIT 1";
     
     db.query(sql, function (err, result) {
-      if (err) throw err;
-      res.json({data:result[0].data})
-      });
+      if (err) {
+        res.json({
+          data: "kosong"
+        })
+      }else{
+        res.json({data:result[0]})
+      }
+      
+    
+    });
   
 });
 app.get('/pompa-1',(req,res)=>{
@@ -200,8 +213,13 @@ app.get('/pompa-1',(req,res)=>{
   const sql = "SELECT * FROM data_relay_1 ORDER BY id DESC LIMIT 1";
     
     db.query(sql, function (err, result) {
-      if (err) throw err;
-      res.json({data:result[0].data})
+      if (err) {
+        res.json({
+          data: "kosong"
+        })
+      }else{
+        res.json({data:result[0]})
+      }
       });
   
 });
@@ -211,8 +229,13 @@ app.get('/pompa-2',(req,res)=>{
   const sql = "SELECT * FROM data_relay_1 ORDER BY id DESC LIMIT 1";
     
     db.query(sql, function (err, result) {
-      if (err) throw err;
-      res.json({data:result[0].data})
+      if (err) {
+        res.json({
+          data: "kosong"
+        })
+      }else{
+        res.json({data:result[0]})
+      }
       });
   
 });
@@ -222,8 +245,13 @@ app.get('/waktu-pakan',(req,res)=>{
   const sql = "SELECT * FROM waktu_pakan ORDER BY id DESC LIMIT 1";
     
     db.query(sql, function (err, result) {
-      if (err) throw err;
-      res.json({data:result[0].waktu})
+      if (err) {
+        res.json({
+          data: "kosong"
+        })
+      }else{
+        res.json({data:result[0]})
+      }
       });
   
 });
