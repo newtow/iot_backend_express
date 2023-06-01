@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "guppyiot"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 });
 
 db.connect(function(error){
