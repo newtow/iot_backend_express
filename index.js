@@ -1,6 +1,7 @@
 var express = require("express");
 const cors = require('cors');
 var app = express();
+
 const bodyParser = require('body-parser')
 const mqtt = require('mqtt')
 const cron = require('node-cron');
@@ -26,13 +27,17 @@ var H1 = 1
 var M2 = 1;
 var H2 = 1
 const setOutput = (result) => {
-  results = result;
+  if(result == !null){
   M = result[0].menit1
   H = result[0].jam1
   M1 = result[0].menit2
   H1 = result[0].jam2
   M2 = result[0].menit3
   H2 = result[0].jam3
+  }
+  else{
+    console.log("data kosong")
+  }
 
 //------------------------------------schadule---------------------------------
 cron.schedule(`${M} ${H} * * *`, () => {
