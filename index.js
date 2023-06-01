@@ -166,10 +166,19 @@ app.post('/timer',(req,res)=>{
 });
 app.get('/',(req,res)=>{
  
- res.json({
-  web:"running"
- })
- console.log("server running")
+  
+  const sql = "SELECT * FROM timer_pakan ORDER BY id DESC LIMIT 1";
+    
+  db.query(sql, function (err, result) {
+    if (err) {
+      res.json({
+        data: "kosong"
+      })
+    }else{
+      res.json({data:result[0]})
+    }
+   
+    });
 
 });
 app.get('/timer',(req,res)=>{
